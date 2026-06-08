@@ -8,16 +8,21 @@ O projeto contém duas partes:
 Objetivo: permitir que os alunos façam requisições (GET/POST/PUT/DELETE), vejam
 status, headers, corpo de requisição/resposta e tempos de execução.
 
-Como executar (recomendado — Docker):
+## Como executar (recomendado — Docker)
+
 ```bash
 docker compose up --build -d
-
-# Frontend: http://localhost:4300
-# API:      http://localhost:4301
 ```
-Executar localmente sem Docker (opcional):
+
+Após o start pelo Docker:
+
+- Frontend: `http://localhost:4300`
+- API:      `http://localhost:4301`
+
+### Executar localmente (opcional)
 
 Frontend
+
 ```bash
 cd frontend
 npm install
@@ -26,6 +31,7 @@ npm run dev
 ```
 
 API
+
 ```bash
 cd api
 npm install
@@ -33,21 +39,23 @@ npm run dev
 # roda em http://localhost:3333 (no container mapeado para 4301)
 ```
 
-Como usar o front
-- Abra `http://localhost:4300` e clique nas rotas para enviar requisições.
-- A área "Resultado" mostra request/response, status e headers.
-- Você pode testar rotas manuais no painel "Teste manual".
+## Como usar o front
 
-Dicas de debugging
+- Abra `http://localhost:4300` e clique nas rotas para enviar requisições.
+- A área **Resultado** mostra request/response, status e headers.
+- Você pode testar rotas manuais no painel **Teste manual**.
+
+## Dicas de debugging
+
 - Abra o DevTools (Console) para ver erros de runtime.
-- Instale React DevTools para inspecionar componentes: https://react.dev/link/react-devtools
-- Se a página aparecer vazia, verifique o console — foi corrigido um `ReferenceError: React is not defined` adicionando a importação em `frontend/src/App.jsx`.
+- Instale o [React DevTools](https://react.dev/link/react-devtools) para inspecionar componentes.
+- Se a página aparecer vazia, verifique o Console — um `ReferenceError: React is not defined` foi corrigido adicionando a importação em `frontend/src/App.jsx`.
 
 Commit e push
 - O README foi atualizado e as mudanças foram enviadas para `origin/main`.
 
 Se tiver dúvidas, cole aqui os erros do Console ou peça para eu rodar uma captura headless.
-# Aula HTTP com React, Vite, Node/Express e Docker
+## Visão geral
 
 Projeto didático para demonstrar, em sala de aula, como funcionam:
 
@@ -185,4 +193,4 @@ curl -i http://localhost:4301/api/erro-com-exception
 
 ## Observação didática
 
-As rotas `204` e `304` não exibem corpo porque esses status normalmente são usados sem corpo de resposta. Isso é proposital para mostrar aos alunos que nem toda resposta HTTP vem acompanhada de JSON.
+As rotas `204` e `304` não exibem corpo porque esses status normalmente são usados sem corpo de resposta. Isso é proposital — mostra aos alunos que nem toda resposta HTTP vem acompanhada de um corpo JSON.
