@@ -1,0 +1,14 @@
+{
+  "name": "aula-http-status-api",
+  "version": "1.0.0",
+  "description": "API Node/Express para demonstrar requisições, respostas e status codes HTTP.",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}

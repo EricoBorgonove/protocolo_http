@@ -1,0 +1,27 @@
+services:
+  api:
+    build: ./api
+    container_name: aula-http-api
+    ports:
+      - "4301:3333"
+    environment:
+      PORT: 3333
+      FRONTEND_ORIGIN: http://localhost:4300
+    volumes:
+      - ./api:/app
+      - /app/node_modules
+    command: npm run dev
+
+  frontend:
+    build: ./frontend
+    container_name: aula-http-frontend
+    ports:
+      - "4300:5173"
+    environment:
+      VITE_API_BASE_URL: http://localhost:4301
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - api
+    command: npm run dev -- --host 0.0.0.0 --port 5173
