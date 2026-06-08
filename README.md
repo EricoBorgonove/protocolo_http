@@ -1,3 +1,52 @@
+# Aula: Protocolo HTTP — Frontend (React) + API (Node/Express)
+
+Este repositório é uma base para prática de protocolos HTTP em aula.
+O projeto contém duas partes:
+
+- `api/` — servidor Node/Express que expõe rotas de exemplo (status codes, erros).
+- `frontend/` — app React usando Vite para testar requisições e inspecionar respostas.
+Objetivo: permitir que os alunos façam requisições (GET/POST/PUT/DELETE), vejam
+status, headers, corpo de requisição/resposta e tempos de execução.
+
+Como executar (recomendado — Docker):
+```bash
+docker compose up --build -d
+
+# Frontend: http://localhost:4300
+# API:      http://localhost:4301
+```
+Executar localmente sem Docker (opcional):
+
+Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+# abre em http://localhost:5173 (no container mapeado para 4300)
+```
+
+API
+```bash
+cd api
+npm install
+npm run dev
+# roda em http://localhost:3333 (no container mapeado para 4301)
+```
+
+Como usar o front
+- Abra `http://localhost:4300` e clique nas rotas para enviar requisições.
+- A área "Resultado" mostra request/response, status e headers.
+- Você pode testar rotas manuais no painel "Teste manual".
+
+Dicas de debugging
+- Abra o DevTools (Console) para ver erros de runtime.
+- Instale React DevTools para inspecionar componentes: https://react.dev/link/react-devtools
+- Se a página aparecer vazia, verifique o console — foi corrigido um `ReferenceError: React is not defined` adicionando a importação em `frontend/src/App.jsx`.
+
+Commit e push
+- O README foi atualizado e as mudanças foram enviadas para `origin/main`.
+
+Se tiver dúvidas, cole aqui os erros do Console ou peça para eu rodar uma captura headless.
 # Aula HTTP com React, Vite, Node/Express e Docker
 
 Projeto didático para demonstrar, em sala de aula, como funcionam:
